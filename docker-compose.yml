@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  webserver:
+    image: periscuelo/node-vue-cli
+    working_dir: /data/app/
+    command: bash -c "ncu -u && npm install && npm run serve"
+    environment:
+      CHOKIDAR_USEPOLLING: 'true'
+      CHOKIDAR_INTERVAL: 300
+    ports:
+      - 8082:8080
+    volumes:
+      - ./app:/data/app
+      - /data/app/node_modules
+    depends_on:
+      - api
+  api:
+    image: periscuelo/node-vue-cli
+    working_dir: /data/api/
+    command: bash -c "ncu -u && npm install && npm start"
+    environment:
+      CHOKIDAR_USEPOLLING: 'true'
+      CHOKIDAR_INTERVAL: 300
+    ports:
+      - 8080:8080
+      - 8081:8081
+    volumes:
+      - ./api:/data/api
+      - /data/api/node_modules
