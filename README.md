@@ -5,14 +5,14 @@
 ## Usage
 
 ### MAC or Linux
-`$ docker container run -d -p 8080:8080 -v $(pwd)/app:/data/app -v /data/app/node_modules periscuelo/node-vue-cli`
+`$ docker container run -d -p 8082:8080 -v $(pwd)/app:/data/app -v /data/app/node_modules -w /data/app -e "CHOKIDAR_USEPOLLING=true" -e "CHOKIDAR_INTERVAL=300" -u node periscuelo/node-vue-cli bash -c "ncu -u && npm install && npm run serve"`
 
-`$ docker container run -d -p 8081:8081 -v $(pwd)/api:/data/api -v /data/api/node_modules periscuelo/node-vue-cli`
+`$ docker container run -d -p 8080:8080 -p 8081:8081 -v $(pwd)/api:/data/api -v /data/api/node_modules -w /data/api -e "CHOKIDAR_USEPOLLING=true" -e "CHOKIDAR_INTERVAL=300" -u node periscuelo/node-vue-cli bash -c "ncu -u && npm install && npm start"`
 
 ### Windows PowerShell
-`$ docker container run -d -p 8080:8080 -v ${pwd}/app:/data/app -v /data/app/node_modules periscuelo/node-vue-cli`
+`$ docker container run -d -p 8082:8080 -v ${pwd}/app:/data/app -v /data/app/node_modules -w /data/app -e "CHOKIDAR_USEPOLLING=true" -e "CHOKIDAR_INTERVAL=300" -u node periscuelo/node-vue-cli bash -c "ncu -u && npm install && npm run serve"`
 
-`$ docker container run -d -p 8081:8081 -v ${pwd}/api:/data/api -v /data/api/node_modules periscuelo/node-vue-cli`
+`$ docker container run -d -p 8080:8080 -p 8081:8081 -v ${pwd}/api:/data/api -v /data/api/node_modules -w /data/api -e "CHOKIDAR_USEPOLLING=true" -e "CHOKIDAR_INTERVAL=300" -u node periscuelo/node-vue-cli bash -c "ncu -u && npm install && npm start"`
 
 ### docker-compose
 
