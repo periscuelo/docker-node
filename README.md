@@ -6,6 +6,8 @@
 
 The npm commands you have to use as you need or what you have written in their respective `package.json`.
 
+These examples below is with folders of a local machine called `app` and `api` respectively.
+
 ### MAC or Linux
 `$ docker container run -d -p 8082:8080 -v $(pwd)/app:/data/app -v /data/app/node_modules -w /data/app -e "CHOKIDAR_USEPOLLING=true" -e "CHOKIDAR_INTERVAL=300" -u node periscuelo/node-vue-cli bash -c "ncu -u && npm install && npm run serve"`
 
