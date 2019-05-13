@@ -9,14 +9,14 @@ The npm commands you have to use as you need or what you have written in their r
 These examples below is with folders of a local machine called `app` and `api` respectively.
 
 ### MAC or Linux
-`$ docker container run -d -p 8082:8080 -v $(pwd)/app:/data/app -v /data/app/node_modules -w /data/app -e "CHOKIDAR_USEPOLLING=true" -e "CHOKIDAR_INTERVAL=300" -u node periscuelo/node-vue-cli bash -c "ncu -u && npm install && npm run serve"`
+`$ docker container run -d -p 8082:8080 -v $(pwd)/app:/data/app -v /data/app/node_modules -w /data/app -e "CHOKIDAR_USEPOLLING=true" -e "CHOKIDAR_INTERVAL=300" -u node periscuelo/node-vue-cli bash -c "ncu -u && npm i && npm run serve"`
 
-`$ docker container run -d -p 8080:8080 -p 8081:8081 -v $(pwd)/api:/data/api -v /data/api/node_modules -w /data/api -e "CHOKIDAR_USEPOLLING=true" -e "CHOKIDAR_INTERVAL=300" -u node periscuelo/node-vue-cli bash -c "ncu -u && npm install && npm start"`
+`$ docker container run -d -p 8080:8080 -p 8081:8081 -v $(pwd)/api:/data/api -v /data/api/node_modules -w /data/api -e "CHOKIDAR_USEPOLLING=true" -e "CHOKIDAR_INTERVAL=300" -u node periscuelo/node-vue-cli bash -c "ncu -u && npm i && npm start"`
 
 ### Windows PowerShell
-`$ docker container run -d -p 8082:8080 -v ${pwd}/app:/data/app -v /data/app/node_modules -w /data/app -e "CHOKIDAR_USEPOLLING=true" -e "CHOKIDAR_INTERVAL=300" -u node periscuelo/node-vue-cli bash -c "ncu -u && npm install && npm run serve"`
+`$ docker container run -d -p 8082:8080 -v ${pwd}/app:/data/app -v /data/app/node_modules -w /data/app -e "CHOKIDAR_USEPOLLING=true" -e "CHOKIDAR_INTERVAL=300" -u node periscuelo/node-vue-cli bash -c "ncu -u && npm i && npm run serve"`
 
-`$ docker container run -d -p 8080:8080 -p 8081:8081 -v ${pwd}/api:/data/api -v /data/api/node_modules -w /data/api -e "CHOKIDAR_USEPOLLING=true" -e "CHOKIDAR_INTERVAL=300" -u node periscuelo/node-vue-cli bash -c "ncu -u && npm install && npm start"`
+`$ docker container run -d -p 8080:8080 -p 8081:8081 -v ${pwd}/api:/data/api -v /data/api/node_modules -w /data/api -e "CHOKIDAR_USEPOLLING=true" -e "CHOKIDAR_INTERVAL=300" -u node periscuelo/node-vue-cli bash -c "ncu -u && npm i && npm start"`
 
 ### docker-compose
 
@@ -30,7 +30,7 @@ services:
   webserver:
     image: periscuelo/node-vue-cli
     working_dir: /data/app/
-    command: bash -c "ncu -u &&  npm install && npm run serve"
+    command: bash -c "ncu -u && npm i && npm run serve"
     environment:
       CHOKIDAR_USEPOLLING: 'true'
       CHOKIDAR_INTERVAL: 300
@@ -44,7 +44,7 @@ services:
   api:
     image: periscuelo/node-vue-cli
     working_dir: /data/api/
-    command: bash -c "ncu -u && npm install && npm start"
+    command: bash -c "ncu -u && npm i && npm start"
     environment:
       CHOKIDAR_USEPOLLING: 'true'
       CHOKIDAR_INTERVAL: 300
