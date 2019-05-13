@@ -4,7 +4,7 @@ services:
   webserver:
     image: periscuelo/node-vue-cli
     working_dir: /data/app/
-    command: bash -c "ncu -u && npm install && npm run serve"
+    command: bash -c "ncu -u && npm i && npm run serve"
     environment:
       CHOKIDAR_USEPOLLING: 'true'
       CHOKIDAR_INTERVAL: 300
@@ -18,7 +18,7 @@ services:
   api:
     image: periscuelo/node-vue-cli
     working_dir: /data/api/
-    command: bash -c "ncu -u && npm install && npm start"
+    command: bash -c "ncu -u && npm i && npm start"
     environment:
       CHOKIDAR_USEPOLLING: 'true'
       CHOKIDAR_INTERVAL: 300
