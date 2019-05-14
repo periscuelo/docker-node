@@ -7,8 +7,6 @@ RUN apt-get -y update \
   && mkdir -p /data/api/node_modules && chown -R node:node /data/api \
   && mkdir -p /data/app/node_modules && chown -R node:node /data/app
 WORKDIR /data/
-COPY /api/package*.json /data/api/
-COPY /app/package*.json /data/app/
 COPY . .
 COPY --chown=node:node . .
 
