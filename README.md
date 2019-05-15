@@ -61,7 +61,7 @@ services:
       CHOKIDAR_INTERVAL: 300
     ports:
       - 8000:8000
-      - 8080docker:8080
+      - 8080:8080
     volumes:
       - ./app:/data/app
       - /data/app/node_modules
