@@ -5,7 +5,7 @@
 ## Notes
 
 If you are using Docker Toolbox in Windows Home (because Windows Pro have a Docker Installation) you have
-to open one prompt with administrator and use the commands below:
+to open one prompt like administrator and use the commands below:
 
 ```
 $ netsh interface portproxy add v4tov4 listenport=8000 listenaddress=localhost connectport=8000 connectaddress=192.168.99.100
@@ -16,6 +16,14 @@ $ netsh interface portproxy add v4tov4 listenport=8082 listenaddress=localhost c
 ```
 
 Probablely your IP in docker is `192.168.99.100` but if don't, change for the respective IP.
+
+After, you need open a notepad like administrator, and access folder `C:\Windows\System32\drivers\etc`, change type of files to `All Files` and select hosts.
+
+Inside of hosts, added the line below:
+
+`192.168.99.100 localhost`
+
+Save the File. Now you be able to access localhost:8080 for example, using Docker Toolbox on Windows Home =)
 
 ## Usage
 
