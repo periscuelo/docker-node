@@ -95,6 +95,10 @@ You can use the `terminal` too. For this, use the following command:
 
 `$ docker exec -it ID_OR_NAME_OF_YOUR_CONTAINER bash`
 
+or
+
+`$ docker attach ID_OR_NAME_OF_YOUR_CONTAINER`
+
 You have to replace `ID_OR_NAME_OF_YOUR_CONTAINER` for  the respective Container ID or Container NAME.  
 Ex: If my container id is f3c99c3239ex then, the command must be:
 
@@ -104,6 +108,10 @@ Inside the terminal you can use the `node` as you want.
 For example:
 
 `$ npm run lint`
+
+You can see the session run for debug too. The command must be:
+
+`$ docker attach f3c99c3239ex`
 
 # Enjoy
 
