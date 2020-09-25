@@ -1,6 +1,9 @@
 FROM node:lts-slim
 LABEL maintainer="Periscuelo"
 
+ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+ENV PATH=$PATH:/home/node/.npm-global/bin 
+
 RUN apt-get -y update \
   && npm i -g @vue/cli \
   && sed -i 's/subscriptionsPath/host: "0.0.0.0", subscriptionsPath/' /usr/local/lib/node_modules/@vue/cli/lib/ui.js \
