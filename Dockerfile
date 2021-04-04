@@ -5,6 +5,7 @@ ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH=$PATH:/home/node/.npm-global/bin
 
 RUN apt-get -y update \
+  && apt-get -y install libssl-dev \
   && npm i -g npm \
   && npm i -g @vue/cli \
   && sed -i 's/subscriptionsPath/host: "0.0.0.0", subscriptionsPath/' /home/node/.npm-global/lib/node_modules/@vue/cli/lib/ui.js \
